@@ -33,7 +33,7 @@ fn main() -> std::io::Result<()> {
 
     let program = contents
         .split(',')
-        .map(|x| x.parse::<u32>().unwrap_or(0))
+        .filter_map(|x| x.parse::<u32>().ok())
         .collect::<Vec<_>>();
 
     for noun in 1..100 {
